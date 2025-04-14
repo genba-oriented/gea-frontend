@@ -2,7 +2,7 @@
 
 ## 本リポジトリについて
 
-本リポジトリは、弊社([合同会社 現場指向](https://www.genba-oriented.com))が「十分に良い(Good Enough)」と考える、フロントエンドのアーキテクチャとそのサンプルプログラムを公開したものです。フリーマーケットを題材にしたサンプルプログラム（フリマアプリという名前）を実装しています。フリマアプリの要件定義は、 [こちらのリポジトリ](https://github.com/genba-oriented/fleamarket-requirements) をご参照ください。
+本リポジトリは、弊社([合同会社 現場指向](https://www.genba-oriented.com))が「十分に良い(Good Enough)」と考える、フロントエンドのアーキテクチャとそのサンプルプログラムを公開したものです。フリーマーケットを題材にしたサンプルプログラム（フリマアプリという名前）を実装しています。フリマアプリの要件定義は、 [こちらのリポジトリ](https://github.com/genba-oriented/gea-requirements) をご参照ください。
 
 公開しているプログラムやドキュメントは自由にご利用いただいて構いません。本リポジトリをベースにして、個別の開発プロジェクトで適宜カスタマイズして利用することを想定しています。ただし、ご利用によって何かしらの不都合が生じた場合は自己責任となることをご了承ねがいます。また、内容は時間とともに変更していく予定です。
 
@@ -43,7 +43,7 @@ OIDCを用いたログインのための設定値などを環境変数で用意�
 <tr class="odd">
 <td style="text-align: left;"><p>OIDC_ISSUER_URL</p></td>
 <td style="text-align: left;"><p>OIDCのIdpのURL。本リポジトリは、IdpのプロバイダとしてGoogleで動作確認しています。他のプロバイダでもある程度動作すると思いますが、ソースコードの微修正が必要になるかもしれません。</p></td>
-<td style="text-align: left;"><p><a href="https://accounts.google.com">https://accounts.google.com</a></p></td>
+<td style="text-align: left;"><p>https://accounts.google.com</p></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><p>OIDC_CLIENT_ID</p></td>
@@ -58,17 +58,17 @@ OIDCを用いたログインのための設定値などを環境変数で用意�
 <tr class="even">
 <td style="text-align: left;"><p>OIDC_REDIRECT_URL</p></td>
 <td style="text-align: left;"><p>OIDCのリダイレクトURL。本リポジトリは「/auth-callback」というエンドポイントを使用する想定になっています。</p></td>
-<td style="text-align: left;"><p><a href="http://localhost:3000/auth-callback">http://localhost:3000/auth-callback</a></p></td>
+<td style="text-align: left;"><p>http://localhost:3000/auth-callback</p></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><p>SESSION_PASSWORD</p></td>
-<td style="text-align: left;"><p>本リポジトリでは、Idpから取得したトークンをセッションで保持します。セッションデータは、暗号化してブラウザのクッキーで保持します。ライブラリとして、IronSession( <a href="https://github.com/vvo/iron-session">https://github.com/vvo/iron-session</a> )を使用しています。本環境変数で暗号時のパスワードを設定します。パスワードの値は最低32桁必要です。</p></td>
+<td style="text-align: left;"><p>本リポジトリでは、Idpから取得したトークンをセッションで保持します。セッションデータは、暗号化してブラウザのクッキーで保持します。ライブラリとして、 <a href="https://github.com/vvo/iron-session">iron-session</a> を使用しています。本環境変数で暗号時のパスワードを設定します。パスワードの値は最低32桁必要です。</p></td>
 <td style="text-align: left;"><p>12345678901234567890123456789012</p></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><p>API_BASE_URL</p></td>
 <td style="text-align: left;"><p>バックエンドのAPIのURL(バックエンドのAPIは、別リポジトリで公開する予定です)。スタブを有効にして起動する場合は本環境変数の指定は不要です。</p></td>
-<td style="text-align: left;"><p><a href="http://localhost:8080">http://localhost:8080</a></p></td>
+<td style="text-align: left;"><p>http://localhost:8080</p></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><p>API_STUB</p></td>
@@ -137,7 +137,7 @@ API Gatewayは、Reverse Proxyの機能や、OpenID Connectのような認証の
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><p>APIサーバ</p></td>
-<td style="text-align: left;"><p>バックエンドのAPIサーバ。本リポジトリにはプログラムは含まれていません。 <a href="https://github.com/genba-oriented/good-enough-architecture-backend-api">こちらのリポジトリ</a>に含まれています。</p></td>
+<td style="text-align: left;"><p>バックエンドのAPIサーバ。本リポジトリにはプログラムは含まれていません。 <a href="https://github.com/genba-oriented/gea-backend-api">こちらのリポジトリ</a>に含まれています。</p></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><p>IdP</p></td>
@@ -196,15 +196,15 @@ API Gatewayは、Reverse Proxyの機能や、OpenID Connectのような認証の
 </colgroup>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><p>React <a href="https://react.dev/">https://react.dev/</a></p></td>
+<td style="text-align: left;"><p><a href="https://react.dev">React</a></p></td>
 <td style="text-align: left;"><p>UIのレンダリングをするライブラリとして、現在主流となっている</p></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><p>Material UI <a href="https://mui.com">https://mui.com</a></p></td>
+<td style="text-align: left;"><p><a href="https://mui.com">Material UI</a></p></td>
 <td style="text-align: left;"><p>UIコンポーネントライブラリとしてシェアが高い</p></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><p>React Router <a href="https://reactrouter.com">https://reactrouter.com</a></p></td>
+<td style="text-align: left;"><p><a href="https://reactrouter.com">React Router</a></p></td>
 <td style="text-align: left;"><p>画面をルーティングする知名度の高いライブラリ。バージョン7からは、SSRの機能をもつRemixというライブラリと融合したが、本リポジトリではSSRの機能は使っていない。</p></td>
 </tr>
 </tbody>
@@ -219,7 +219,7 @@ API Gatewayは、Reverse Proxyの機能や、OpenID Connectのような認証の
 </colgroup>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><p>MobX <a href="https://mobx.js.org">https://mobx.js.org</a></p></td>
+<td style="text-align: left;"><p><a href="https://mobx.js.org">MobX</a></p></td>
 <td style="text-align: left;"><p>主流というわけではなが、昔から存在するステート管理のライブラリ。オブジェクトのプロパティを更新しただけで自動的に再描画(render関数の呼び出し)してくれる。</p></td>
 </tr>
 </tbody>
@@ -234,15 +234,15 @@ API Gatewayは、Reverse Proxyの機能や、OpenID Connectのような認証の
 </colgroup>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><p>Express <a href="https://expressjs.com">https://expressjs.com</a></p></td>
+<td style="text-align: left;"><p><a href="https://expressjs.com">Express</a></p></td>
 <td style="text-align: left;"><p>サーバーサイドのWebフレームワーク</p></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><p>openid-client <a href="https://github.com/panva/openid-client">https://github.com/panva/openid-client</a></p></td>
+<td style="text-align: left;"><p><a href="https://github.com/panva/openid-client">openid-client</a></p></td>
 <td style="text-align: left;"><p>OpenID ConnectのClientを作成するための機能を提供するライブラリ。特定のIdpに依存しない。</p></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><p>iron-session <a href="https://github.com/vvo/iron-session">https://github.com/vvo/iron-session</a></p></td>
+<td style="text-align: left;"><p><a href="https://github.com/vvo/iron-session">iron-session</a></p></td>
 <td style="text-align: left;"><p>セッションデータをブラウザーのCookieで保持するためのライブラリ。Cookieに保持するデータは暗号化される</p></td>
 </tr>
 </tbody>
@@ -257,7 +257,7 @@ API Gatewayは、Reverse Proxyの機能や、OpenID Connectのような認証の
 </colgroup>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><p>Rsbuild <a href="https://rsbuild.dev">https://rsbuild.dev</a></p></td>
+<td style="text-align: left;"><p><a href="https://rsbuild.dev">Rsbuild</a></p></td>
 <td style="text-align: left;"><p>処理速度が速いとされるビルドツール</p></td>
 </tr>
 </tbody>
@@ -339,25 +339,25 @@ API Gatewayは、Reverse Proxyの機能や、OpenID Connectのような認証の
 
 ### テスティングフレームワーク
 
-テスティングフレームワークとして、Vitestを使用します。ただし、Playwrightを用いたテストではVitestは使用しません。
+テスティングフレームワークとして、 [Vitest](https://vitest.dev)を使用します。ただし、Playwrightを用いたテストではVitestは使用しません。
 
 ### Express周りのサーバサイドのテスト
 
-SuperTestを用いてリクエストを送信しながらテストします。
+[SuperTest](https://github.com/ladjs/supertest)を用いてリクエストを送信しながらテストします。
 
-SuperTestは、ランダムなポートを使ってサーバプログラムを自動的に起動し、テストできるライブラリです。 <https://github.com/ladjs/supertest>
+SuperTestは、ランダムなポートを使ってサーバプログラムを自動的に起動し、テストできるライブラリです。
 
 ### IdPと連携したOIDCの認証のテスト
 
-Playwrightを用いてブラウザを自動操作しながらテストします。
+[Playwright](https://playwright.dev)を用いてブラウザを自動操作しながらテストします。
 
 ### UIコンポーネントのテスト
 
-React Testing Libraryを使用します。バックエンドのAPIの呼び出しは、MSWを使用してAPIをモック化します。
+[React Testing Library](https://github.com/testing-library/react-testing-library)を使用します。バックエンドのAPIの呼び出しは、 [Mock Service Worker (MSW)](https://mswjs.io)を使用してAPIをモック化します。
 
-MSWは、APIをモック化できるライブラリです。 <https://mswjs.io>
+MSWは、APIをモック化できるライブラリです。
 
-Modelや関数をモック化する場合は、Vitestのviでモック化します。 <https://vitest.dev/guide/mocking.html>
+Modelや関数をモック化する場合は、Vitestの [vi](https://vitest.dev/guide/mocking.html)でモック化します。
 
 ### Modelのテスト
 
@@ -365,7 +365,40 @@ APIを呼び出している場合は、MSWを使用してAPIをモック化し�
 
 ### E2Eテスト
 
-APIサーバと結合してテストするため、本リポジトリとは別のリポジトリ(特に公開はしていません)で作成します。
+APIサーバと結合してテストすることから、フロントエンドの範疇を超えるため本リポジトリでは作成しません。
+
+## 備忘録
+
+### Modelについて
+
+特にこの単位で作るといったルールはありません。以下のようなケースで作成します。
+
+-   PageやComponentで、useStateで管理するデータが多くなった場合
+
+-   PageやComponentで、描画以外の処理が複雑になった場合
+
+-   複数のPageやComponentで、複数のデータや処理を共有したい場合
+
+### MobXの利用シーン
+
+基本的に、Modelを作った際にMobXを使用します。MobXを使ってModelのデータを公開すれば、useStateを使わなくても、データ更新時に自動的に再描画(renderメソッドの呼び出し)が行われます。
+
+### (Reactの)Contextの利用シーン
+
+UIコンポーネント間でデータを受け渡す場合は、基本的にはPropsを使用します。しかし、Propsの受け渡しが煩雑になったり、親子関係に関わらず様々なUIコンポーネントで共通して使用するデータだったりする場合は、Contextを使用したほうがよいです。
+また、Page間でデータを共有する場合は、共通のLayoutを作成し、React Routerが提供する [useOutletContext](https://reactrouter.com/6.30.0/hooks/use-outlet-context#useoutletcontext)を使用すると便利です。
+
+### OIDCのClientの役割をどこで担うか
+
+OIDCのClientの役割は、SPAで担った方が、サーバサイドでトークンの管理をしなくてよいのでシンプルだと個人的には思います。しかし、以下のようなデメリットがあります。
+
+-   基本的に各Idpが提供するライブラリを使用するため、各Idpに依存した作りになってしまう(Idpに依存しないライブラリを使うこともできるが、Idpが提供するものに比べると敷居が高くなる)
+
+-   Authorization CodeフローでClientシークレットの指定を必須とするIdpに対応できない(ClientシークレットをSPAのプログラム内で保持するとセキュリティ的に問題なため)。例えばGoogleの場合、調べた限りだと [Clientシークレットの指定が必須](https://developers.google.com/identity/openid-connect/openid-connect#exchangecode)となっています
+
+-   トークンをブラウザで保持するため、漏洩のリスクが上がる
+
+本リポジトリでは、上記のデメリットを回避するため、API GatewayがOIDCのClientの役割を担っています。
 
 ## 語彙集
 

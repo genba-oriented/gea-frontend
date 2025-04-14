@@ -1,28 +1,28 @@
 ## テストについて
 
 ### テスティングフレームワーク
-テスティングフレームワークとして、Vitestを使用します。ただし、Playwrightを用いたテストではVitestは使用しません。
+テスティングフレームワークとして、 https://vitest.dev[Vitest^]を使用します。ただし、Playwrightを用いたテストではVitestは使用しません。
 
 ### Express周りのサーバサイドのテスト
-SuperTestを用いてリクエストを送信しながらテストします。
+https://github.com/ladjs/supertest[SuperTest^]を用いてリクエストを送信しながらテストします。
 
-NOTE: SuperTestは、ランダムなポートを使ってサーバプログラムを自動的に起動し、テストできるライブラリです。 https://github.com/ladjs/supertest
+NOTE: SuperTestは、ランダムなポートを使ってサーバプログラムを自動的に起動し、テストできるライブラリです。 
 
 ### IdPと連携したOIDCの認証のテスト
-Playwrightを用いてブラウザを自動操作しながらテストします。
+https://playwright.dev[Playwright^]を用いてブラウザを自動操作しながらテストします。
 
 ### UIコンポーネントのテスト
-React Testing Libraryを使用します。バックエンドのAPIの呼び出しは、MSWを使用してAPIをモック化します。
+https://github.com/testing-library/react-testing-library[React Testing Library^]を使用します。バックエンドのAPIの呼び出しは、 https://mswjs.io[Mock Service Worker (MSW)^]を使用してAPIをモック化します。
 
-NOTE: MSWは、APIをモック化できるライブラリです。 https://mswjs.io
+NOTE: MSWは、APIをモック化できるライブラリです。 
 
-Modelや関数をモック化する場合は、Vitestのviでモック化します。 https://vitest.dev/guide/mocking.html
+Modelや関数をモック化する場合は、Vitestの https://vitest.dev/guide/mocking.html[vi^]でモック化します。 
 
 ### Modelのテスト
 APIを呼び出している場合は、MSWを使用してAPIをモック化します。
 
 ### E2Eテスト
-APIサーバと結合してテストするため、本リポジトリとは別のリポジトリ(特に公開はしていません)で作成します。
+APIサーバと結合してテストすることから、フロントエンドの範疇を超えるため本リポジトリでは作成しません。
 
 
 

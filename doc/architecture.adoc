@@ -9,7 +9,7 @@ image::architecture.drawio.svg[]
 
 |SPA|ブラウザ上で動作するJavaScriptアプリケーション
 |Node.jsサーバ|SPAをホスティングしつつ、API Gatewayの役割を担うサーバ
-|APIサーバ|バックエンドのAPIサーバ。本リポジトリにはプログラムは含まれていません。 https://github.com/genba-oriented/good-enough-architecture-backend-api[こちらのリポジトリ]に含まれています。
+|APIサーバ|バックエンドのAPIサーバ。本リポジトリにはプログラムは含まれていません。 https://github.com/genba-oriented/gea-backend-api[こちらのリポジトリ^]に含まれています。
 |IdP|GoogleなどのIdentity Provider
 |===
 

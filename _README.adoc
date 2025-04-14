@@ -20,5 +20,7 @@ include::./doc/directory.adoc[]
 
 include::./doc/testing.adoc[]
 
+include::./doc/etc.adoc[]
+
 include::./doc/glossaries.adoc[]
 
