@@ -1,0 +1,24 @@
+= Good Enough Architecture ~ Frontend
+:sectnums:
+:toc: left
+:toclevels: 2
+:imagesdir: ./doc
+
+include::./doc/about.adoc[]
+
+include::./doc/concept.adoc[]
+
+include::./doc/install-run.adoc[]
+
+include::./doc/feature.adoc[]
+
+include::./doc/architecture.adoc[]
+
+include::./doc/stack.adoc[]
+
+include::./doc/directory.adoc[]
+
+include::./doc/testing.adoc[]
+
+include::./doc/glossaries.adoc[]
+

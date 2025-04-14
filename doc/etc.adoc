@@ -1,0 +1,26 @@
+== 備忘録
+
+=== Modelについて
+特にこの単位で作るといったルールはありません。以下のようなケースで作成します。
+
+* PageやComponentで、useStateで管理するデータが多くなった場合
+* PageやComponentで、UI以外の処理が複雑になった場合
+* 複数のPageやComponentで、複数のデータや処理を共有したい場合
+
+=== MobXの利用シーン
+基本的に、Modelを作った際にMobXを使用します。MobXを使ってModelのデータを公開すれば、useStateを使わなくても、データ更新時に自動的に再描画(renderメソッドの呼び出し)が行われます。
+
+=== (Reactの)Contextの利用シーン
+UIコンポーネント間でデータを受け渡す場合は、基本的にはPropsを使用します。しかし、Propsの受け渡しが煩雑になったり、親子関係に関わらず様々なUIコンポーネントで共通して使用するデータだったりする場合は、Contextを使用したほうがよいです。
+また、Page間でデータを共有する場合は、共通のLayoutを作成し、React Routerが提供するuseOutletContextを使用するとよいです。
+
+=== OIDCのClientの役割をどこで担うか
+OIDCのClientの役割は、SPAで担った方が、サーバサイドでトークンの管理をしなくてよいのでシンプルだと個人的には思います。しかし、以下のようなデメリットがあります。
+
+* 基本的に各Idpが提供するライブラリを使用するため、各Idpに依存した作りになる(Idpに依存しないライブラリを使うこともできるが、Idpが提供するものに比べると敷居が高くなる)
+* Authorization CodeフローでClientシークレットの指定を必須とするIdpに対応できない(ClientシークレットをSPAのプログラム内で保持するとセキュリティ的に問題なため)。例えばGoogleの場合、調べた限りだとClientシークレットの指定が必須となっています( https://developers.google.com/identity/openid-connect/openid-connect#exchangecode )
+* トークンをブラウザで保持するため、漏洩のリスクが上がる
+
+本リポジトリでは、上記のデメリットを回避するため、API GatewayがOIDCのClientの役割を担っています。
+
+

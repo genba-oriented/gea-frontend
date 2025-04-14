@@ -1,0 +1,25 @@
+== ディレクトリ構成
+
+=== トップレベル
+
+|===
+|ディレクトリ名|説明
+
+|doc|ドキュメント
+|pw-tests|Playwrightのテスト
+|src|SPAのソースコード
+|src-server|Node.js上で動くサーバサイドのプログラムのソースコード
+|===
+
+=== src内(SPAのソースコード)のディレクトリ構成
+
+|===
+|ディレクトリ名|説明
+
+|components|Componentを格納
+|dto|Dtoを格納
+|model|Modelを格納
+|pages|Pageを格納
+|util|Utilを格納
+|===
+

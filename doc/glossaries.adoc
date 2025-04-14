@@ -1,0 +1,8 @@
+== 語彙集
+
+|===
+|単語|意味
+
+|UIコンポーネント|ReactのUIコンポーネント。PageやComponentが該当する
+|dev server|Rsbuildが提供する開発用のNode.jsサーバ
+|===

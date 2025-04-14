@@ -1,0 +1,36 @@
+== インストール＆実行方法
+=== パッケージのインストール
+----
+npm install
+----
+
+=== 環境変数用のファイルを用意
+OIDCを用いたログインのための設定値などを環境変数で用意します。プロジェクト直下に「.env」ファイルを作成すれば自動的に読み込まれます。以下の項目を設定します。
+
+|===
+|環境変数名|説明|サンプル値
+
+|OIDC_ISSUER_URL|OIDCのIdpのURL。本リポジトリは、IdpのプロバイダとしてGoogleで動作確認しています。他のプロバイダでもある程度動作すると思いますが、ソースコードの微修正が必要になるかもしれません。| https://accounts.google.com
+|OIDC_CLIENT_ID|OIDCのクライントID|-
+|OIDC_CLIENT_SECRET|OIDCのクライントシークレット|-
+|OIDC_REDIRECT_URL|OIDCのリダイレクトURL。本リポジトリは「/auth-callback」というエンドポイントを使用する想定になっています。|http://localhost:3000/auth-callback
+|SESSION_PASSWORD|本リポジトリでは、Idpから取得したトークンをセッションで保持します。セッションデータは、暗号化してブラウザのクッキーで保持します。ライブラリとして、IronSession( https://github.com/vvo/iron-session )を使用しています。本環境変数で暗号時のパスワードを設定します。パスワードの値は最低32桁必要です。|12345678901234567890123456789012
+|API_BASE_URL|バックエンドのAPIのURL(バックエンドのAPIは、別リポジトリで公開する予定です)。スタブを有効にして起動する場合は本環境変数の指定は不要です。|http://localhost:8080
+|API_STUB|APIのスタブを有効・無効にするためのフラグ|true
+|===
+
+=== ローカル(dev server)で実行
+----
+npm run dev
+----
+
+=== ブラウザでアクセス
+「 http://localhost:3000 」にアクセスします。スタブのAPIを使用している場合、表示されるデータは固定です。
+
+
+=== ビルドして実行
+----
+npm run build
+npx tsx --env-file=.env src-server/server.ts
+----
+

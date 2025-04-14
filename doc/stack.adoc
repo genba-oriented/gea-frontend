@@ -1,0 +1,27 @@
+== 技術スタック
+
+=== UI周り
+|===
+|React https://react.dev/ |UIのレンダリングをするライブラリとして、現在主流となっている
+|Material UI https://mui.com |UIコンポーネントライブラリとしてシェアが高い
+|React Router https://reactrouter.com |画面をルーティングする知名度の高いライブラリ。バージョン7からは、SSRの機能をもつRemixというライブラリと融合したが、本リポジトリではSSRの機能は使っていない。
+|===
+
+
+=== ステート管理
+|===
+|MobX https://mobx.js.org | 主流というわけではなが、昔から存在するステート管理のライブラリ。オブジェクトのプロパティを更新しただけで自動的に再描画(render関数の呼び出し)してくれる。
+|===
+
+=== API Gateway周り
+|===
+|Express https://expressjs.com |サーバーサイドのWebフレームワーク
+|openid-client https://github.com/panva/openid-client |OpenID ConnectのClientを作成するための機能を提供するライブラリ。特定のIdpに依存しない。
+|iron-session https://github.com/vvo/iron-session |セッションデータをブラウザーのCookieで保持するためのライブラリ。Cookieに保持するデータは暗号化される
+|===
+
+=== ビルドツール
+|===
+|Rsbuild https://rsbuild.dev |処理速度が速いとされるビルドツール
+|===
+
