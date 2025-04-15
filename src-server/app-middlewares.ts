@@ -13,9 +13,7 @@ import stub from "./stub/api-stub";
 
 export const addMiddlewares = (app: Express) => {
 
-  app.use(helmet({ // セキュリティ関連のレスポンスヘッダを付けてくれる
-    contentSecurityPolicy: false // for monaco editor
-  }));
+  app.use(helmet()); // セキュリティ関連のレスポンスヘッダを付けてくれる
   app.use(cookieParser());
   app.use(csrf);
   app.use(session);
