@@ -101,7 +101,7 @@ OIDCを用いたログインのための設定値などを環境変数で用意�
 
 ### API Gatewayの処理をNode.js上で行う
 
-フロントエンドとバックエンドのAPIの通信は、通常API Gateway(Backend For Frontendと呼ばれたりもします)が仲介します。
+フロントエンドとバックエンドのAPIの通信は、通常API Gateway(もしくは、Backend For Frontend)が仲介します。
 
 API Gatewayは、Reverse Proxyの機能や、OpenID Connectのような認証の機能を持ったりします。API Gatewayをどう実現するかはさまざまですが、本リポジトリでは、フロントエンドのプログラムをホスティングするNode.js上でAPI Gatewayの処理を行っています。これにより以下の利点があります。
 
