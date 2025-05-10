@@ -2,7 +2,7 @@
 
 ## 本リポジトリについて
 
-本リポジトリは、弊社([合同会社 現場指向](https://www.genba-oriented.com))が「十分に良い(Good Enough)」と考える、フロントエンドのアーキテクチャとそのサンプルプログラムを公開したものです。フリーマーケットを題材にしたサンプルプログラム（フリマアプリという名前）を実装しています。フリマアプリの要件定義は、 [こちらのリポジトリ](https://github.com/genba-oriented/gea-requirements) をご参照ください。また、バックエンドAPIの仕様書は [こちら](https://htmlpreview.github.io/?https://github.com/genba-oriented/gea-backend-api/blob/main/doc/rest-api/index.html)で確認できます。
+本リポジトリは、弊社([合同会社 現場指向](https://www.genba-oriented.com))が「十分に良い(Good Enough)」と考える、フロントエンドのアーキテクチャとそのサンプルプログラムを公開したものです。フリーマーケットを題材にしたサンプルプログラム（フリマアプリという名前）を実装しています。フリマアプリの要件定義は、 [こちらのリポジトリ](https://github.com/genba-oriented/gea-requirements) をご参照ください。また、バックエンドAPIのアーキテクチャは [こちらのリポジトリ](https://github.com/genba-oriented/gea-backend-api) をご参照ください。APIの仕様書は [こちら](https://htmlpreview.github.io/?https://github.com/genba-oriented/gea-backend-api/blob/main/doc/rest-api/index.html)で確認できます。
 
 公開しているプログラムやドキュメントは [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0) ライセンスとしますので、自由にご利用いただいて構いません。本リポジトリをベースにして、個別の開発プロジェクトで適宜カスタマイズして利用することを想定しています。ただし、ご利用によって何かしらの不都合が生じた場合は自己責任となることをご了承ねがいます。また、内容は時間とともに変更していく予定です。
 
