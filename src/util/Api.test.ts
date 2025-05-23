@@ -59,7 +59,7 @@ test("content type file", async () => {
 test("connection error", async () => {
   server.use(
     http.get("/foo", ({ request }) => {
-      return; HttpResponse.error();
+      return HttpResponse.error();
     })
   );
   const errorDialogModel = new ErrorDialogModel();
