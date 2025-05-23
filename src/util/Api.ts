@@ -24,11 +24,17 @@ export class Api {
     }
     afterInit.headers = headers;
     const fullPath = path.startsWith("http://") || path.startsWith("https://") ? path : window.location.origin + path;
-    const res = await fetch(fullPath, afterInit);
+    let res: Response = null;
+    try {
+      res = await fetch(fullPath, afterInit);
+    } catch (error) {
+      this.errorDialogModel.show("ネットワークエラーが発生しました");
+      throw error;
+    }
 
     if (res.status >= 500) {
-      this.errorDialogModel.show("ネットワークエラーが発生しました");
-      throw new Error("ネットワークエラー");
+      this.errorDialogModel.show("サーバ側でエラーが発生しました");
+      throw new Error("サーバ側でエラー");
     }
 
     return res;

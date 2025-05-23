@@ -1,3 +1,4 @@
+import { ErrorDialogModel } from "@/model/util/ErrorDialogModel";
 import Cookies from "js-cookie";
 import { http, HttpResponse } from "msw";
 import { expect, test } from "vitest";
@@ -52,5 +53,21 @@ test("content type file", async () => {
   formData.append("file", new File(["foo"], "foo.txt"));
   const body = await api.fetch("/foo", { method: "POST", body: formData }).then(res => res.text());
   expect(body).toBe("ok");
+
+});
+
+test("connection error", async () => {
+  server.use(
+    http.get("/foo", ({ request }) => {
+      return; HttpResponse.error();
+    })
+  );
+  const errorDialogModel = new ErrorDialogModel();
+  const api = new Api(errorDialogModel);
+  try {
+    await api.fetch("/foo").then(res => res.json());
+  } catch (error) {
+    expect(errorDialogModel.message == null).toBe(false);
+  }
 
 });
