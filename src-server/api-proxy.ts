@@ -36,8 +36,8 @@ async function proxy(req: Request, res: Response, token: string) {
   // Cookieは削除
   delete headers["cookie"];
 
-  //{}だと、GETやHEADのときbodyは設定できないというエラーがでる
-  const body = Object.keys(req.body).length == 0 ? null : req.body;
+  // bodyが空の場合、Express 5だとundefinedになる様子(Express 4だと{}だった)
+  const body = req.body == null ? null : req.body;
 
   const apiRes = await request(newUrl, {
     method: req.method as Dispatcher.HttpMethod,

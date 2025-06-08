@@ -31,7 +31,8 @@ export const addMiddlewares = (app: Express) => {
   app.use("/auth-callback", authCallback);
 
   if (process.env.API_STUB != "true") {
-    app.use("/api/*", bodyParser.raw({
+    //https://expressjs.com/en/guide/migrating-5.html#path-syntax
+    app.use("/api/*splat", bodyParser.raw({
       limit: "2mb",
       type: "*/*"
     }), proxy);

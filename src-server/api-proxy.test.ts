@@ -12,7 +12,8 @@ import session from "./session";
 function getExpress() {
   const app = express();
   app.use(session);
-  app.use("/api/*", bodyParser.raw({
+  //https://expressjs.com/en/guide/migrating-5.html#path-syntax
+  app.use("/api/*splat", bodyParser.raw({
     limit: "2mb",
     type: "*/*"
   }), proxy);
@@ -94,3 +95,20 @@ test("proxy with token", async () => {
 
 });
 
+test("proxy with request body", async () => {
+  const mockAgent = getMockAgent();
+  mockAgent.get(apiBaseUrl).intercept({
+    method: "POST", path: "/body", body: (body) => {
+      if (body != "this is body") {
+        return false;
+      }
+      return true;
+    }
+  }).reply(200, "ok");
+
+
+  const app = getExpress();
+  const res = await request(app).post("/api/body").send("this is body");
+  expect(res.text).toBe("ok");
+
+});

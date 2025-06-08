@@ -13,6 +13,9 @@ function getExpress() {
   app.get("/bar", (req, res, next) => {
     next(new Error("bar"));
   });
+  app.get("/async", async (req, res) => {
+    throw new Error("foo");
+  });
   app.use(errorHandler);
   return app;
 }
@@ -28,6 +31,13 @@ test("throw exception", async () => {
 test("set errot to next function", async () => {
   const app = getExpress();
   const res = await request(app).get("/bar");
+  expect(res.status).toBe(500);
+  expect(res.text).toBe("error in middleware");
+});
+
+test("throw exception in async function", async () => {
+  const app = getExpress();
+  const res = await request(app).get("/async");
   expect(res.status).toBe(500);
   expect(res.text).toBe("error in middleware");
 });
