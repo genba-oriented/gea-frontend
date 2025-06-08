@@ -19,7 +19,9 @@ export const CatalogDetailPage = observer(() => {
     api.fetch(`/api/catalog/sells/${id}`)
       .then(res => res.json())
       .then((data: SellDto) => {
-        if (data.userId == loginUserModel.id) {
+        if (!loginUserModel.logined) {
+          setSell(data);
+        } else if (data.userId == loginUserModel.id) {
           // 自分が出品した商品
           navigate(`/sell/detail/${id}`, { replace: true });
         } else if (data.sold) {

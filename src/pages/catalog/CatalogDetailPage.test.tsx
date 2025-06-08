@@ -29,6 +29,7 @@ test("sell by myself", async () => {
     })
   );
   const userModel = new LoginUserModel(null);
+  userModel.logined = true;
   userModel.id = "u01";
   const api = new Api(null);
   render(
@@ -94,6 +95,7 @@ test("bought by myself", async () => {
     })
   );
   const userModel = new LoginUserModel(null);
+  userModel.logined = true;
   userModel.id = "u02";
   const api = new Api(null);
   render(
@@ -143,6 +145,7 @@ test("show normally", async () => {
     })
   );
   const userModel = new LoginUserModel(null);
+  userModel.logined = true;
   userModel.id = "u03";
   const api = new Api(null);
   render(
@@ -158,6 +161,54 @@ test("show normally", async () => {
   );
   await waitFor(() => {
     expect(screen.getByText("購入の手続きをする")).toBeVisible();
+  });
+
+});
+
+
+test("not login user show sold product", async () => {
+  server.use(
+    http.get("/api/catalog/sells/s01", () => {
+      return HttpResponse.text(`
+
+        {
+          "id" : "s01",
+          "userId" : "u01",
+          "productName" : "pname01",
+          "description" : "desc01",
+          "price" : 1000,
+          "sold" : true,
+          "productImageIds" : [ "pi01", "pi0" ]
+        }        
+        `);
+    }),
+    http.get("/api/review/rated-users/u01", () => {
+      return HttpResponse.text(`
+{
+  "userId" : "u01",
+  "userName" : "uname01",
+  "reviewCount" : 10,
+  "averageScore" : 4.3
+}
+        `);
+    })
+  );
+  const userModel = new LoginUserModel(null);
+  userModel.logined = false;
+  const api = new Api(null);
+  render(
+    <LoginUserModelProvider value={userModel}>
+      <ApiProvider value={api}>
+        <MemoryRouter initialEntries={["/catalog/detail/s01"]}>
+          <Routes>
+            <Route path="/catalog/detail/:id" element={<CatalogDetailPage />} />
+          </Routes>
+        </MemoryRouter>
+      </ApiProvider>
+    </LoginUserModelProvider>
+  );
+  await waitFor(() => {
+    expect(screen.getByText("一覧にもどる")).toBeVisible();
   });
 
 });

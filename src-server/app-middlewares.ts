@@ -13,7 +13,17 @@ import stub from "./stub/api-stub";
 
 export const addMiddlewares = (app: Express) => {
 
-  app.use(helmet()); // セキュリティ関連のレスポンスヘッダを付けてくれる
+  // セキュリティ関連のレスポンスヘッダを付けてくれる
+  // JavaScriptによる画像のロードを許可する　https://stackoverflow.com/a/78792462
+  app.use(
+    helmet({
+      contentSecurityPolicy: {
+        directives: {
+          "img-src": ["'self'", "blob:", "data:"],
+        },
+      },
+    }),
+  );
   app.use(cookieParser());
   app.use(csrf);
   app.use(session);
