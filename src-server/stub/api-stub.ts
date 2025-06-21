@@ -12,7 +12,7 @@ export default function stub(app: Express) {
   user(app);
   buy(app);
   sell(app);
-  app.use("/api/*", (req, res) => {
+  app.use("/api/*splat", (req, res) => {
     res.status(404);
     res.send("api not found !");
   });
