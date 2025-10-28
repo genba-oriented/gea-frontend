@@ -5,7 +5,10 @@ import { afterAll, afterEach, beforeAll, vi } from "vitest";
 export function setupMsw() {
   const server = setupServer();
   beforeAll(() => {
-    server.listen();
+    // supertestでリクエストを投げた際に、unhandleの警告が出ないようにする
+    server.listen(
+      { onUnhandledRequest: "bypass" }
+    );
   });
   afterEach(() => {
     server.resetHandlers();

@@ -47,10 +47,11 @@ export const MyPage = observer(() => {
           <Typography>ログアウトしますか？</Typography>
           <Stack direction="row">
             <Button
-              onClick={async () => {
-                await loginUserModel.logout();
-                navigate("/");
-              }}
+              href="/logout"
+            //onClick={async () => {
+            //await loginUserModel.logout();
+            //navigate("/logout");
+            //}}
             >はい</Button>
             <Button
               onClick={() => {

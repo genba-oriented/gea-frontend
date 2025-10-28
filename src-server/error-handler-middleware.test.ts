@@ -2,7 +2,7 @@
 import express from "express";
 import request from "supertest";
 import { expect, test } from 'vitest';
-import errorHandler from "./error-handler";
+import errorHandlerMiddleware from "./error-handler-middleware";
 
 
 function getExpress() {
@@ -16,7 +16,7 @@ function getExpress() {
   app.get("/async", async (req, res) => {
     throw new Error("foo");
   });
-  app.use(errorHandler);
+  errorHandlerMiddleware(app);
   return app;
 }
 

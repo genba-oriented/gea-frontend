@@ -3,13 +3,13 @@ import cookieParser from "cookie-parser";
 import express from "express";
 import request from "supertest";
 import { expect, test } from 'vitest';
-import csrf from "./csrf";
+import csrfMiddleware from "./csrf-middleware";
 
 
 function getExpress() {
   const app = express();
   app.use(cookieParser());
-  app.use(csrf);
+  csrfMiddleware(app);
   return app;
 }
 test("no csrf token", async () => {

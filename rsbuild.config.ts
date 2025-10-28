@@ -1,10 +1,7 @@
 import { defineConfig } from '@rsbuild/core';
 import { pluginReact } from '@rsbuild/plugin-react';
-import express from 'express';
 
-import { addMiddlewares } from "./src-server/app-middlewares";
-const app = express();
-addMiddlewares(app);
+import { app } from "./src-server/express-app";
 
 export default defineConfig({
 

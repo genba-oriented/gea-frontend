@@ -44,16 +44,16 @@ export class LoginUserModel {
 
   }
 
-  async logout() {
-    await this.api.fetch("/logout", {
-      method: "POST"
-    });
-    runInAction(() => {
-      this.logined = false;
-      this.id = null;
-      this.name = null;
-      this.email = null;
-    });
-  }
+  // async logout() {
+  //   await this.api.fetch("/logout", {
+  //     method: "POST"
+  //   });
+  //   runInAction(() => {
+  //     this.logined = false;
+  //     this.id = null;
+  //     this.name = null;
+  //     this.email = null;
+  //   });
+  // }
 
 }

@@ -6,9 +6,9 @@ export const LoginPage = () => {
 
   return (
     <Stack textAlign="center" spacing={2}>
-      <Typography variant="h5">Googleアカウントへのログインが必要です</Typography>
+      <Typography variant="h5">IdPへのログインが必要です</Typography>
       <Box>
-        <Button href={"/start-auth" + location.search} >Login with Google</Button>
+        <Button href={"/login" + location.search} >Login with IdP</Button>
       </Box>
     </Stack>
   );

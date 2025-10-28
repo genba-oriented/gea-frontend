@@ -1,6 +1,6 @@
 
 import express, { Request, Response } from "express";
-import { addMiddlewares } from "./app-middlewares";
+import { addMiddlewares } from "./old/app-middlewares";
 
 const baseDir = process.cwd();
 

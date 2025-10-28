@@ -1,12 +1,14 @@
 import { Express } from 'express';
-import { isLogined } from '../oidc';
 export const user = (app: Express) => {
   app.get("/api/user/users/me", async (req, res) => {
-
-    if (!await isLogined(req, res)) {
+    if (!req.oidc.isAuthenticated()) {
       res.status(401).send();
       return;
     }
+    // if (!await isLogined(req, res)) {
+    //   res.status(401).send();
+    //   return;
+    // }
     const json = `
 {
   "id" : "u02",
