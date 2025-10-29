@@ -19,41 +19,32 @@ export class LoginUserModel {
   }
 
   async load() {
-    const userDto: UserDto = await this.api.fetch("/api/user/users/me")
-      .then((res) => {
-        if (res.status == 200) {
-          return res.json();
-        } else if (res.status == 401) {
-          console.log("認証されていません");
-          return null;
+
+    const data = await this.api.fetch("/me").then(res => res.json());
+    if (data.name == null) {
+      console.log("認証されていません");
+      return null;
+    }
+
+    try {
+      const userDto: UserDto = await this.api.fetch("/api/user/users/me")
+        .then(res => res.json());
+
+      runInAction(() => {
+        if (userDto != null) {
+          this.logined = true;
+          this.id = userDto.id;
+          this.name = userDto.name;
+          this.email = userDto.email;
+          this.activated = userDto.activated;
+        } else {
+          this.logined = false;
         }
-        return null;
       });
-
-    runInAction(() => {
-      if (userDto != null) {
-        this.logined = true;
-        this.id = userDto.id;
-        this.name = userDto.name;
-        this.email = userDto.email;
-        this.activated = userDto.activated;
-      } else {
-        this.logined = false;
-      }
-    });
-
+    } catch (error) {
+      this.logined = false;
+      return;
+    }
   }
-
-  // async logout() {
-  //   await this.api.fetch("/logout", {
-  //     method: "POST"
-  //   });
-  //   runInAction(() => {
-  //     this.logined = false;
-  //     this.id = null;
-  //     this.name = null;
-  //     this.email = null;
-  //   });
-  // }
 
 }

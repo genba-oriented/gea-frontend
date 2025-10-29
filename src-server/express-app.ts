@@ -4,9 +4,9 @@ import helmet from "helmet";
 import authMiddleware from './auth-middleware';
 import csrfMiddleware from './csrf-middleware';
 import errorHandlerMiddleware from './error-handler-middleware';
+import meMiddleware from './me-middleware';
 import proxyMiddleware from './proxy-middleware';
 import stubMiddleware from './stub-middleware';
-
 
 export const app = express();
 // セキュリティ関連のレスポンスヘッダを付けてくれる
@@ -23,6 +23,7 @@ app.use(
 app.use(cookieParser());
 csrfMiddleware(app);
 authMiddleware(app);
+meMiddleware(app);
 if (process.env.API_STUB != "true") {
   proxyMiddleware(app);
 } else {

@@ -1,13 +1,8 @@
 
 import express, { Request, Response } from "express";
-import { addMiddlewares } from "./old/app-middlewares";
+import { app } from "./express-app";
 
 const baseDir = process.cwd();
-
-const app = express();
-
-addMiddlewares(app);
-
 app.use(express.static(baseDir + "/dist"));
 app.get('/{*splat}', (req: Request, res: Response) => {
   res.sendFile(baseDir + "/dist/index.html");

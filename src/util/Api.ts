@@ -31,10 +31,13 @@ export class Api {
       this.errorDialogModel.show("ネットワークエラーが発生しました");
       throw error;
     }
-
     if (res.status >= 500) {
       this.errorDialogModel.show("サーバ側でエラーが発生しました");
       throw new Error("サーバ側でエラー");
+    }
+    if (res.status == 401) {
+      this.errorDialogModel.show("セッションの有効期限が切れました");
+      throw new Error("セッションの有効期限切れ");
     }
 
     return res;

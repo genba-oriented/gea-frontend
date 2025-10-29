@@ -1,5 +1,4 @@
 import type { Express, Request, Response } from 'express';
-import "express-session"; // for req.session
 import { createProxyMiddleware } from 'http-proxy-middleware';
 import { NextFunction } from 'http-proxy-middleware/dist/types';
 
@@ -15,15 +14,9 @@ export default function proxyMiddleware(app: Express) {
         await refresh();
         console.log("refreshed");
       } catch (error) {
-        console.log(error);
-        // リフレッシュトークンが無効なので、セッションを破棄する
-        req.session.destroy((err) => {
-          if (err) {
-            console.log(err);
-          } else {
-            console.log("session destroyed.");
-          }
-        });
+        console.log("refresh error");
+        res.status(401).send("refresh error");
+        return;
       }
     }
     next();
