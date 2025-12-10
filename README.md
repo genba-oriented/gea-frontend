@@ -1,3 +1,6 @@
+# ⚠️本リポジトリは移動しました。
+新しいリポジトリは、 [https://github.com/genba-oriented/gea](https://github.com/genba-oriented/gea) です。
+
 # Good Enough Architecture ~ Frontend
 
 ## 本リポジトリについて
